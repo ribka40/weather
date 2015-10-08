@@ -176,6 +176,7 @@ td.date
     
     var tomorrow = new Date();
     tomorrow.setTime(tomorrow.getTime() + (1000*3600*24));
+    tomorrow.setHours(0,0,0,0); // set to midnight
     //var min = dfMin.format(new Date());
     //var max = dfMax.format(tomorrow);
     var min = moment.tz(new Date(), "America/North_Dakota/New_Salem").format();
