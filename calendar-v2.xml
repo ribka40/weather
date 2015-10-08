@@ -186,9 +186,13 @@ td.date
       queryParams += '&q=' + encodeURIComponent(prefs.getString("searchQuery"));
     }
     
+    var calUrl = 'https://www.googleapis.com/calendar/v3/calendars/' + googleUrl(prefs.getString("calendarUrl")) + '/events?key=' + key + queryParams;
+    
+    console.log(calUrl);
+    
     jQuery.ajax({
       type: 'GET',
-      url: 'https://www.googleapis.com/calendar/v3/calendars/' + googleUrl(prefs.getString("calendarUrl")) + '/events?key=' + key + queryParams,
+      url: calUrl,
       dataType: 'json',
       success: function (response) {
         $("#event-container").empty();
