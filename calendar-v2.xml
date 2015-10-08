@@ -172,11 +172,11 @@ td.date
     var queryParams = '&singleEvents=true&maxResults=' + prefs.getInt("maxResults") + '&orderBy=startTime';
   
     var dfMin = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.000ZZ");
-    var dfMax = new SimpleDateFormat("yyyy-MM-dd'T'00:00:00.000ZZ");
+    var dfMax = new SimpleDateFormat("yyyy-MM-dd'T'23:59:59.000ZZ");
     
     var tomorrow = new Date();
     tomorrow.setTime(tomorrow.getTime() + (1000*3600*24));
-    tomorrow.setHours(0,0,0,0); // set to midnight
+    //tomorrow.setHours(0,0,0,0); // set to midnight
     
     var min = dfMin.format(new Date());
     var max = dfMax.format(tomorrow);
@@ -241,13 +241,13 @@ td.date
 
     var span = $("<span class=\"when\"></span>");
     
-    var sd = moment(startDateTime).format("__MSG_Calendar_DateFormat__");
-    var st = moment(startDateTime).format("__MSG_Calendar_TimeFormat__");
-    var et = moment(startDateTime).format("__MSG_Calendar_TimeFormat__");
+    var sd = moment(startDateTime).tz("America/North_Dakota/New_Salem").format("__MSG_Calendar_DateFormat__");
+    var st = moment(startDateTime).tz("America/North_Dakota/New_Salem").format("__MSG_Calendar_TimeFormat__");
+    var et = moment(startDateTime).tz("America/North_Dakota/New_Salem").format("__MSG_Calendar_TimeFormat__");
     if (isAllDay) {
-      var ed = moment(endDateTime).subtract('days', 1).format("__MSG_Calendar_DateFormat__");
+      var ed = moment(endDateTime).subtract('days', 1).tz("America/North_Dakota/New_Salem").format("__MSG_Calendar_DateFormat__");
     } else {
-      var ed = moment(endDateTime).format("__MSG_Calendar_DateFormat__");
+      var ed = moment(endDateTime).tz("America/North_Dakota/New_Salem").format("__MSG_Calendar_DateFormat__");
     }
     
     if (isAllDay) {
@@ -278,13 +278,13 @@ td.date
     var tbody = $("<tbody></tbody>");
     var tr = $('<tr/>');
             
-    var sd = moment(startDateTime).format("__MSG_Calendar_DateFormat__");
-    var st = moment(startDateTime).format("__MSG_Calendar_TimeFormat__");
-    var et = moment(endDateTime).format("__MSG_Calendar_TimeFormat__");
+    var sd = moment(startDateTime).tz("America/North_Dakota/New_Salem").format("__MSG_Calendar_DateFormat__");
+    var st = moment(startDateTime).tz("America/North_Dakota/New_Salem").format("__MSG_Calendar_TimeFormat__");
+    var et = moment(endDateTime).tz("America/North_Dakota/New_Salem").format("__MSG_Calendar_TimeFormat__");
     if (isAllDay) {
-      var ed = moment.utc(endDateTime).subtract('days', 1).format("__MSG_Calendar_DateFormat__");
+      var ed = moment.utc(endDateTime).subtract('days', 1).tz("America/North_Dakota/New_Salem").format("__MSG_Calendar_DateFormat__");
     } else {
-      var ed = moment.utc(endDateTime).format("__MSG_Calendar_DateFormat__");
+      var ed = moment.utc(endDateTime).tz("America/North_Dakota/New_Salem").format("__MSG_Calendar_DateFormat__");
     }
     
     var td = $("<td class=\"date\"/>");
