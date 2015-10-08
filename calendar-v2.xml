@@ -176,9 +176,11 @@ td.date
     
     var tomorrow = new Date();
     tomorrow.setTime(tomorrow.getTime() + (1000*3600*24));
-    var min = dfMin.format(new Date());
-    var max = dfMax.format(tomorrow);
-    
+    //var min = dfMin.format(new Date());
+    //var max = dfMax.format(tomorrow);
+    var min = moment.tz(new Date(), "America/North_Dakota/New_Salem").format();
+    var max = moment.tz(tomorrow, "America/North_Dakota/New_Salem").format();
+  
     queryParams += '&timeMin=' + min;
     queryParams += '&timeMax=' + max;
     
