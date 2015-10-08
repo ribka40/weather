@@ -204,7 +204,7 @@ td.date
       error: function (response) {
         $("#event-container").empty();
         $("#data table tbody").remove();
-        console.log(response);
+        console.log(response.responseText);
       }
     });
   }
