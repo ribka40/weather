@@ -183,7 +183,7 @@ div, span
 
 <script type="text/javascript">
 
-  var days = ['Zondag','Maandag','Dinsdag','Woensdag','Donderdag','Vrijdag','Zaterdag'];
+  var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   var prefs = new gadgets.Prefs();
   var geocoder = new google.maps.Geocoder();
   var skycons;
